@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise!</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+body {
+margin: 0;
+font-family: 'Baloo 2', cursive;
+background: linear-gradient(to bottom, #ffe6f2, #ffcccc);
+overflow: hidden;
+position: relative;
+}
+
+/* Overlay with big Halloween theme */
+#overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: radial-gradient(circle at top left, #330033, #660066, #000000);
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+z-index: 10;
+color: #fff;
+text-align: center;
+animation: overlayGlow 3s infinite alternate;
+}
+
+@keyframes overlayGlow {
+0% { box-shadow: 0 0 20px #ff66b2; }
+100% { box-shadow: 0 0 50px #ffcc66; }
+}
+
+#overlay h1 {
+font-size: 3em;
+margin-bottom: 30px;
+text-shadow: 3px 3px 10px #ff6600, 0 0 15px #ff33ff;
+}
+
+#overlay button {
+padding: 20px 40px;
+font-size: 1.7em;
+background-color: #ff6600;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+color: #fff;
+transition: transform 0.2s, box-shadow 0.3s;
+box-shadow: 0 0 10px #ffcc66;
+}
+
+#overlay button:hover {
+transform: scale(1.15);
+box-shadow: 0 0 25px #ff33ff;
+}
+
+/* Surprise content hidden initially */
+#content {
+display: none;
+text-align: center;
+color: #333;
+padding: 20px;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: radial-gradient(circle at top, #fff0f5, #ffe6f2);
+}
+
+h1 {
+font-size: 3.2em;
+color: #e60073;
+text-shadow: 2px 2px 10px #fff;
+font-family: 'Sacramento', cursive;
+}
+
+p {
+font-size: 1.4em;
+max-width: 700px;
+line-height: 1.8;
+margin: 20px 20px 30px;
+color: #330033;
+background: rgba(255,255,255,0.7);
+padding: 20px;
+border-radius: 20px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+img {
+max-width: 80%;
+height: auto;
+border-radius: 25px;
+box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+margin-bottom: 25px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+transform: scale(1.08) rotate(-2deg);
+box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.music-note {
+font-size: 3em;
+animation: bounce 1s infinite alternate;
+margin-bottom: 20px;
+color: #ff66b2;
+text-shadow: 1px 1px 5px #fff;
+}
+
+@keyframes bounce {
+from { transform: translateY(0); }
+to { transform: translateY(-15px); }
+}
+
+/* Balloons animation */
+.balloon {
+position: absolute;
+width: 50px;
+height: 70px;
+border-radius: 50%;
+animation: float 6s ease-in infinite;
+}
+
+.balloon:nth-child(2) { background-color: #ffcc66; left: 20%; animation-duration: 5s; }
+.balloon:nth-child(3) { background-color: #66ccff; left: 70%; animation-duration: 7s; }
+.balloon:nth-child(4) { background-color: #ff33ff; left: 50%; animation-duration: 6s; }
+
+@keyframes float {
+0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+100% { transform: translateY(-150px) rotate(360deg); opacity: 0; }
+}
+
+/* Confetti */
+.confetti {
+position: fixed;
+width: 10px;
+height: 10px;
+z-index: 20;
+top: 0;
+opacity: 0.9;
+pointer-events: none;
+animation: fall linear forwards;
+}
+
+@keyframes fall {
+0% { transform: translateY(0) rotate(0deg); }
+100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Cute Halloween elements */
+.pumpkin {
+position: absolute;
+width: 50px;
+bottom: 0;
+animation: pumpkinBounce 3s infinite alternate;
+}
+
+@keyframes pumpkinBounce {
+0% { transform: translateY(0); }
+100% { transform: translateY(-20px); }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Overlay with Halloween/birthday theme -->
+
+<div id="overlay">
+  <h1>🎃 Tap to Open Your Magical Surprise! 🎉</h1>
+  <button id="openBtn">Open Surprise</button>
+</div>
+
+<!-- Surprise content -->
+
+<div id="content">
+  <h1>Happy Birthday, Tsuki Hikari!</h1>
+  <img src="1000029789.jpg" alt="Birthday Star">
+  <p>
+    Today is a day as magical as you are! 🧡 We celebrate you with joy, laughter, and sweet memories that will last forever. May this year bring endless adventures, warm hugs, bright smiles, and all the love your heart can hold. Let the music, balloons, and confetti carry you into an unforgettable birthday wonderland! Remember, this is your day to sparkle, shine, and feel the magic around you! ✨🎂🎈
+  </p>
+  <div class="music-note">🎵</div>
+  <audio id="birthdaySong" src="The Neighbourhood - Sweater Weather (Official Video).mp3" loop></audio>
+
+  <!-- Balloons -->
+
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+
+  <!-- Halloween pumpkins -->
+
+  <img src="https://i.ibb.co/4JkWm7K/pumpkin.png" class="pumpkin" style="left:10%;">
+  <img src="https://i.ibb.co/5Tv3wD8/pumpkin.png" class="pumpkin" style="left:80%;">
+</div>
+
+<script>
+  const overlay = document.getElementById('overlay');
+  const content = document.getElementById('content');
+  const audio = document.getElementById('birthdaySong');
+  const openBtn = document.getElementById('openBtn');
+
+  // Tap button to reveal surprise
+  openBtn.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    content.style.display = 'flex';
+    audio.play();
+
+    // Start confetti
+    startConfetti();
+    setInterval(startConfetti, 2000); // continuous confetti every 2s
+  });
+
+  // Click anywhere to play/pause music
+  document.body.addEventListener('click', (e) => {
+    if(content.style.display === 'flex') {
+      if(e.target !== openBtn) {
+        if(audio.paused) audio.play();
+        else audio.pause();
+      }
+    }
+  });
+
+  // Confetti function
+  function startConfetti() {
+    const colors = ['#ff0','#ff66b2','#66ccff','#ffcc66','#00ff99','#ff3300'];
+    for(let i=0; i<50; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      confetti.style.left = Math.random()*100 + 'vw';
+      confetti.style.animationDuration = 3 + Math.random()*3 + 's';
+      confetti.style.width = 5 + Math.random()*10 + 'px';
+      confetti.style.height = confetti.style.width;
+      document.body.appendChild(confetti);
+      confetti.addEventListener('animationend', () => confetti.remove());
+    }
+  }
+</script>
+
+</body>
+</html>
