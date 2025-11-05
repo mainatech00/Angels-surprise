@@ -15,8 +15,8 @@
   word-wrap: break-word;
   white-space: normal;
   display: block;
-  overflow-y: visible; /* allow full scroll if text is long */
-  height: auto;        /* make sure height grows with text */
+  overflow-y: visible;
+  height: auto;
 }
 
 @media screen and (max-width: 480px) {
@@ -25,6 +25,19 @@
     line-height: 1.5;
   }
 }
+
+/* Make sure the whole page can scroll and nothing hides the message */
+html, body {
+  height: auto !important;
+  overflow-y: visible !important;
+}
+
+/* Fix for any wrapper divs that might clip the content */
+#content, .wrapper, .container {
+  height: auto !important;
+  overflow: visible !important;
+}
+
 
 
   @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
@@ -273,5 +286,6 @@ animation: pumpkinBounce 3s infinite alternate;
 
 </body>
 </html>
+
 
 
