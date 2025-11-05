@@ -6,6 +6,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Surprise!</title>
 <style>
+.message-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+@media screen and (max-width: 480px) {
+  .message-container {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
   @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 
@@ -184,7 +201,7 @@ animation: pumpkinBounce 3s infinite alternate;
 
 <!-- Surprise content -->
 
-<div id="content">
+<div id="content" class="message-container">
   <h1>Happy Birthday, Tsuki Hikari!</h1>
   <img src="1000029789.jpg" alt="Birthday Star">
   <p>
@@ -252,3 +269,4 @@ animation: pumpkinBounce 3s infinite alternate;
 
 </body>
 </html>
+
